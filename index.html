@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Earthquake Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/ol@v7.3.0/dist/ol.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/ol@v7.3.0/ol.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script defer type="module" src="main.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Earthquake Project</h1>
+      </nav>
+    </header>
+
+    <main>
+      <aside>
+        <label for="mapBaseSelect">Base Map:</label>
+        <select id="mapBaseSelect" name="selectbox">
+          <option value="OSM" selected>OSM - Open Street Maps</option>
+          <option value="Esri">ESRI World Imagery</option>
+          <option value="NatGeo">National Geographic</option>
+        </select>
+        <form>
+          <label for="radius">Radius:</label>
+          <input type="text" id="radius" name="radius" required />
+
+          <label for="place">Place:</label>
+          <input type="text" id="place" name="place" required />
+          <div class="search-results">
+            <ul id="results-list"></ul>
+          </div>
+          <label for="startdate">Start Date:</label>
+          <input type="date" id="startdate" name="startdate" />
+          <label for="enddate">End Date:</label>
+          <input type="date" id="enddate" name="enddate" />
+
+          <button type="submit" id="submit">Search</button>
+        </form>
+        <div class="manage-data">
+          <h2>Manage Result</h2>
+          <label for="search-history">Search History</label>
+          <select name="" id="search-history">
+            <option value=" " selected></option>
+          </select>
+          <button id="addHeatMap">Add Earthquake Heat Map</button>
+          <button id="downloadEarthquakeData">
+            Download Earthquake Data in Geojson
+          </button>
+        </div>
+      </aside>
+      <section>
+        <div id="map">
+          <div id="layers-controller">
+            <label for="earthquakelayer">Earthquake Layer</label>
+            <input
+              type="checkbox"
+              name="Earthquake"
+              id="earthquakelayer"
+              checked
+            />
+            <label for="circleLayer">Circle Layer</label>
+            <input type="checkbox" name="Earthquake" id="circleLayer" checked />
+            <label for="pinLayer">Pin Layer</label>
+            <input type="checkbox" name="Earthquake" id="pinLayer" checked />
+          </div>
+          <div id="interaction-controller">
+            <h2>Interactions</h2>
+            <label for="None">None</label>
+            <input
+              type="radio"
+              name="interactionType"
+              id="None"
+              value="None"
+              checked
+            />
+            <label for="drawPinLayer">Pin</label>
+            <input
+              type="radio"
+              name="interactionType"
+              id="drawPinLayer"
+              value="drawPinLayer"
+            />
+            <label for="lineLayer">Line</label>
+            <input
+              type="radio"
+              name="interactionType"
+              id="lineLayer"
+              value="lineLayer"
+            />
+            <label for="polygonLayer">Polygon</label>
+            <input
+              type="radio"
+              name="interactionType"
+              id="polygonLayer"
+              value="polygonLayer"
+            />
+          </div>
+          <div id="legend">
+            <h3>Legend</h3>
+            <ul>
+              <li><span class="red"></span>Below 4</li>
+              <li><span class="yellow"></span>4 to 6</li>
+              <li><span class="green"></span>Above 6</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <a href="https://github.com/Xsamii/OpenLayers_FinalProject"
+          >Github Reository</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
